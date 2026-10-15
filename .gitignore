@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.data/
+.vercel/
+.env
+.env.*
+!.env.example
+*.log
+coverage/
+test-results/
+screenshots/
+# Reference documents with real customer data must never be committed or deployed
+*.pdf

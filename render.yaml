@@ -1,0 +1,30 @@
+# Render Blueprint (alternative host): one web service + managed PostgreSQL.
+# Render -> New -> Blueprint -> select this repository. Set SUPERADMIN_PASSWORD after the first deploy.
+services:
+  - type: web
+    name: saiassist-rsa
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: saiassist-rsa-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SUPERADMIN_EMAIL
+        value: admin@saiassist.local
+      - key: SUPERADMIN_PASSWORD
+        sync: false
+      - key: SEED_DEMO
+        value: 'true'
+databases:
+  - name: saiassist-rsa-db
+    plan: free
+    region: singapore

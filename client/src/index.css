@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@source './';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --color-brand-50: #eff5ff;
+  --color-brand-100: #dbe7fe;
+  --color-brand-200: #bfd4fe;
+  --color-brand-300: #93b8fd;
+  --color-brand-400: #6093fa;
+  --color-brand-500: #3b6ff6;
+  --color-brand-600: #2554eb;
+  --color-brand-700: #1d41d8;
+  --color-brand-800: #1e36af;
+  --color-brand-900: #1e338a;
+  --color-brand-950: #0b1a3a;
+  --color-gold-400: #f5b100;
+  --color-gold-500: #e09c00;
+
+  /* Chart chrome & series (validated: dataviz reference palette, light mode, white surface) */
+  --color-chart-1: #2a78d6;
+  --color-chart-2: #eb6834;
+  --color-chart-grid: #e1e0d9;
+  --color-chart-axis: #c3c2b7;
+  --color-chart-muted: #898781;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thin, unobtrusive scrollbars for tables and the sidebar */
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(148 163 184 / 0.5) transparent;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 160ms ease-out;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

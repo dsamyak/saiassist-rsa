@@ -1,0 +1,8 @@
+# Only the prebuilt .vercel/output is deployed; never upload reference documents or local data.
+*.pdf
+.data
+node_modules
+dist
+screenshots
+.env
+.env.*
